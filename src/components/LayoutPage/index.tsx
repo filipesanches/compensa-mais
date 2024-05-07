@@ -32,11 +32,24 @@ function LayoutPage() {
 
     const product1Price = valor1 / (quantidade1 * 1000);
     const product2Price = valor2 / (quantidade2 * 1000);
+    console.log(product1Price, product2Price);
 
     const calc =
-      product1Price < product2Price
-        ? `O primeiro produto tem mais vantagem`
-        : `O segundo produto tem mais vantagem`;
+      product1Price === product2Price
+        ? `Ambos os produtos têm o mesmo preço. Cada Kg ou L sai por R$ ${Number(
+            product1Price * 1000
+          ).toFixed(2)}.`
+        : product1Price < product2Price
+        ? `O primeiro produto tem a vantagem no preço. Cada Kg ou L sai por R$ ${Number(
+            product1Price * 1000
+          ).toFixed(2)}, enquanto o segundo sai por R$ ${Number(
+            product2Price * 1000
+          ).toFixed(2)}.`
+        : `O segundo produto tem a vantagem no preço. Cada Kg ou L sai por R$ ${Number(
+            product2Price * 1000
+          ).toFixed(2)}, enquanto o primeiro sai por R$ ${Number(
+            product1Price * 1000
+          ).toFixed(2)}.`;
 
     return calc;
   };

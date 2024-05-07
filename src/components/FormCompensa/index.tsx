@@ -22,7 +22,7 @@ const FormCompensa = ({
     setDataForm((prevDataForm) => {
       return {
         ...prevDataForm,
-        [name]: value,
+        [name]: value.toString().includes(',') ? value.replace(',', '.') : value,
       };
     });
   };
