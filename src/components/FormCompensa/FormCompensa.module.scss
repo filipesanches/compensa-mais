@@ -1,0 +1,92 @@
+$form-background-color: #f4f4f4; // Cor de fundo do formulário
+$form-text-color: #333; // Cor do texto do formulário
+$form-border-color: #ccc; // Cor da borda do formulário
+$form-submit-background-color: #ffd700; // Cor de fundo do botão de envio
+$form-submit-text-color: #333; // Cor do texto do botão de envio
+$form-hover-background-color: #ffec8b; // Cor de fundo do botão de envio ao passar o mouse
+$form-hover-text-color: #333; // Cor do texto do botão de envio ao passar o mouse
+
+.form-container {
+  background-color: $form-background-color;
+  max-width: 400px;
+  width: 100% ;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid $form-border-color;
+
+  div {
+    border: $form-border-color 1px solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    p {
+      margin-bottom: 5px;
+      display: flex;
+
+      span{
+        margin-left: 5px;
+      }
+    }
+
+    label {
+      display: block;
+      position: relative;
+
+      input {
+        width: 100%;
+        padding: 17px 2px 5px 10px;
+        outline: none;
+        border: none;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        transition: transform 0.5s ease;
+
+        &:active + span,
+        &:focus + span,
+        &:valid + span {
+          top: 2px;
+          left: 5px;
+          transform: translateY(0);
+          font-size: 7pt;
+          color: $form-border-color;
+          background-color: transparent;
+        }
+      }
+
+      span {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10px;
+        transition: 0.5s ease;
+        color: $form-text-color;
+        font-size: 9pt;
+        display: flex;
+        align-items: center
+      }
+    }
+
+    &:last-child {
+      display: flex;
+      justify-content: end;
+      border: none;
+      padding: 0px;
+      margin-bottom: 0px;
+      input[type='submit'] {
+        background-color: $form-submit-background-color;
+        color: $form-submit-text-color;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+
+        &:hover {
+          background-color: $form-hover-background-color;
+          color: $form-hover-text-color;
+        }
+      }
+    }
+  }
+}
