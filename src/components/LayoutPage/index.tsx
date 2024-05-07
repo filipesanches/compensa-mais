@@ -32,7 +32,6 @@ function LayoutPage() {
 
     const product1Price = valor1 / (quantidade1 * 1000);
     const product2Price = valor2 / (quantidade2 * 1000);
-    console.log(product1Price, product2Price);
 
     const calc =
       product1Price === product2Price
