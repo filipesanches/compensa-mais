@@ -45,7 +45,7 @@ function LayoutPage() {
     <>
       <div className={classes['container']}>
         <div>
-          <h2>Qual compensa mais</h2>
+          <h2>Qual compensa mais ?</h2>
           <p>Quantidade dever ser inserida em Kg ou L.</p>
         </div>
         <FormCompensa onDataChange={handleChangeData} />
