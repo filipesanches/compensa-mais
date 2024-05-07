@@ -3,7 +3,7 @@ Calculadora de Comparação de Preços
 
 Este é um aplicativo simples que permite aos usuários comparar o preço de dois produtos com base em sua quantidade e determinar qual deles oferece a melhor relação custo-benefício.
 
-Você pode acessar o aplicativo em [compensa-mais.com](https://compensa-mais.com/).
+Você pode acessar o aplicativo em [https://compensa-mais-z5t3.vercel.app/](https://compensa-mais-z5t3.vercel.app/).
 
 Funcionalidades
 ---------------
@@ -15,7 +15,7 @@ Funcionalidades
 Como Usar
 ---------
 
-1.  Acesse [compensa-mais.com](https://compensa-mais.com/).
+1.  Acesse [https://compensa-mais-z5t3.vercel.app/](https://compensa-mais-z5t3.vercel.app/).
 2.  **Insira os Dados**: Siga as instruções na interface do aplicativo para inserir a quantidade e o preço dos dois produtos.
 3.  **Visualize os Resultados**: O aplicativo exibirá qual produto oferece a melhor relação custo-benefício com base nos dados fornecidos.
 
