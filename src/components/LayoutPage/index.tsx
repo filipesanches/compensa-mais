@@ -77,7 +77,6 @@ function LayoutPage() {
 
   return (
     <>
-      {unitMeasurementProducts.product1} {unitMeasurementProducts.product2}
       <div className={classes['container']}>
         <div>
           <h2>Qual compensa mais ?</h2>
