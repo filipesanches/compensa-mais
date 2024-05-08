@@ -8,7 +8,10 @@ import classes from './FormCompensa.module.scss';
 const FormCompensa = ({
   onDataChange,
 }: {
-  onDataChange: (datForm: DataForm) => void;
+  onDataChange: (
+    datForm: DataForm,
+    unitMeasurementProducts: { product1: string; product2: string }
+  ) => void;
 }) => {
   const [dataForm, setDataForm] = useState<DataForm>({
     valor1: '',
@@ -16,20 +19,38 @@ const FormCompensa = ({
     quantidade1: '',
     quantidade2: '',
   });
+  const [unitMeasurementProduct1, setUnitMeasurementProduct1] = useState('');
+  const [unitMeasurementProduct2, setUnitMeasurementProduct2] = useState('');
 
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setDataForm((prevDataForm) => {
       return {
         ...prevDataForm,
-        [name]: value.toString().includes(',') ? value.replace(',', '.') : value,
+        [name]: value.toString().includes(',')
+          ? value.replace(',', '.')
+          : value,
       };
     });
   };
 
+  const handleChangeRadio = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    if (name === 'product1') {
+      setUnitMeasurementProduct1(value);
+    } else {
+      setUnitMeasurementProduct2(value);
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onDataChange(dataForm);
+
+    const measurementProducts = {
+      product1: unitMeasurementProduct1,
+      product2: unitMeasurementProduct2,
+    };
+    onDataChange(dataForm, measurementProducts);
   };
 
   return (
@@ -38,6 +59,48 @@ const FormCompensa = ({
         <p>
           <MdProductionQuantityLimits size={20} /> <span>Produto 1</span>
         </p>
+        <div className={classes['radio-container']}>
+          <label>
+            <input
+              type="radio"
+              name="product1"
+              id="kilo"
+              value="kilo"
+              onChange={handleChangeRadio}
+            />
+            <span>Kg</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="product1"
+              id="grama"
+              value="grama"
+              onChange={handleChangeRadio}
+            />
+            <span>G</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="product1"
+              id="litro"
+              value="litro"
+              onChange={handleChangeRadio}
+            />
+            <span>L</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="product1"
+              id="mililitro"
+              value="mililitro"
+              onChange={handleChangeRadio}
+            />
+            <span>ML</span>
+          </label>
+        </div>
         <label>
           <input
             type="number"
@@ -46,6 +109,7 @@ const FormCompensa = ({
             onChange={handleChangeInput}
             value={dataForm.valor1}
             required
+            min={0}
           />
           <span>
             <BsCurrencyDollar /> Valor
@@ -59,6 +123,7 @@ const FormCompensa = ({
             onChange={handleChangeInput}
             value={dataForm.quantidade1}
             required
+            min={0}
           />
           <span>
             <GiWineBottle /> Quantidade em Kg ou L
@@ -69,6 +134,48 @@ const FormCompensa = ({
         <p>
           <MdProductionQuantityLimits size={20} /> <span>Produto 2</span>
         </p>
+        <div className={classes['radio-container']}>
+          <label>
+            <input
+              type="radio"
+              name="product2"
+              id="kilo"
+              value="kilo"
+              onChange={handleChangeRadio}
+            />
+            <span>Kg</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="product2"
+              id="grama"
+              value="grama"
+              onChange={handleChangeRadio}
+            />
+            <span>G</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="product2"
+              id="litro"
+              value="litro"
+              onChange={handleChangeRadio}
+            />
+            <span>L</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="product2"
+              id="mililitro"
+              value="mililitro"
+              onChange={handleChangeRadio}
+            />
+            <span>ML</span>
+          </label>
+        </div>
         <label>
           <input
             type="number"
@@ -77,6 +184,7 @@ const FormCompensa = ({
             onChange={handleChangeInput}
             value={dataForm.valor2}
             required
+            min={0}
           />
           <span>
             <BsCurrencyDollar /> Valor
@@ -90,6 +198,7 @@ const FormCompensa = ({
             onChange={handleChangeInput}
             value={dataForm.quantidade2}
             required
+            min={0}
           />
           <span>
             <GiWineBottle /> Quantidade em Kg ou L

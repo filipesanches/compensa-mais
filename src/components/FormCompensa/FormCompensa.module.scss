@@ -9,12 +9,12 @@ $form-hover-text-color: #333; // Cor do texto do botão de envio ao passar o mou
 .form-container {
   background-color: $form-background-color;
   max-width: 400px;
-  width: 100% ;
-  padding: 10px;
+  width: 100%;
+  padding: 20px 10px;
   border-radius: 5px;
   border: 1px solid $form-border-color;
 
-  div {
+  div:not(.radio-container) {
     border: $form-border-color 1px solid;
     border-radius: 5px;
     padding: 10px;
@@ -24,7 +24,7 @@ $form-hover-text-color: #333; // Cor do texto do botão de envio ao passar o mou
       margin-bottom: 5px;
       display: flex;
 
-      span{
+      span {
         margin-left: 5px;
       }
     }
@@ -63,7 +63,7 @@ $form-hover-text-color: #333; // Cor do texto do botão de envio ao passar o mou
         color: $form-text-color;
         font-size: 9pt;
         display: flex;
-        align-items: center
+        align-items: center;
       }
     }
 
@@ -86,6 +86,34 @@ $form-hover-text-color: #333; // Cor do texto do botão de envio ao passar o mou
           background-color: $form-hover-background-color;
           color: $form-hover-text-color;
         }
+      }
+    }
+  }
+  .radio-container {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+
+    padding: 10px 0;
+    label {
+      display: flex !important;
+      align-items: center;
+      padding: 5px;
+      position: relative;
+      flex-flow: row nowrap;
+      span,
+      input[type='radio'] {
+        position: initial !important;
+        margin: initial !important;
+        padding: initial !important;
+        top: initial !important;
+        left: initial !important;
+        transform: initial !important;
+        display: initial !important;
+      }
+      span {
+        margin-left: 5px !important;
+        margin-right: 5px !important;
       }
     }
   }

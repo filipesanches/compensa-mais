@@ -10,16 +10,25 @@ function LayoutPage() {
     valor2: 0,
     quantidade2: 0,
   });
+  const [unitMeasurementProducts, setUnitMeasurementProducts] = useState({
+    product1: '',
+    product2: '',
+  });
 
-  const handleChangeData = (dataForm: DataForm) => {
+  const handleChangeData = (
+    dataForm: DataForm,
+    unitMeasurementProducts: { product1: string; product2: string }
+  ) => {
     setData(dataForm);
+    setUnitMeasurementProducts(unitMeasurementProducts);
+    console.log(dataForm, unitMeasurementProducts);
   };
 
   const productVantage = () => {
     const valor1 = Number(data.valor1);
-    const quantidade1 = Number(data.quantidade1);
+    let quantidade1 = Number(data.quantidade1);
     const valor2 = Number(data.valor2);
-    const quantidade2 = Number(data.quantidade2);
+    let quantidade2 = Number(data.quantidade2);
 
     if (
       isNaN(valor1) ||
@@ -30,24 +39,37 @@ function LayoutPage() {
       return 'Valores inválidos fornecidos.';
     }
 
-    const product1Price = valor1 / (quantidade1 * 1000);
-    const product2Price = valor2 / (quantidade2 * 1000);
+    if (
+      unitMeasurementProducts.product1 === 'grama' ||
+      unitMeasurementProducts.product1 === 'mililitro'
+    ) {
+      quantidade1 = quantidade1 / 1000;
+    }
+    if (
+      unitMeasurementProducts.product2 === 'grama' ||
+      unitMeasurementProducts.product2 === 'mililitro'
+    ) {
+      quantidade2 = quantidade2 / 1000;
+    }
+
+    const product1Price = valor1 / quantidade1;
+    const product2Price = valor2 / quantidade2;
 
     const calc =
       product1Price === product2Price
         ? `Ambos os produtos têm o mesmo preço. Cada Kg ou L sai por R$ ${Number(
-            product1Price * 1000
+            product1Price
           ).toFixed(2)}.`
         : product1Price < product2Price
         ? `O primeiro produto tem a vantagem no preço. Cada Kg ou L sai por R$ ${Number(
-            product1Price * 1000
+            product1Price
           ).toFixed(2)}, enquanto o segundo sai por R$ ${Number(
-            product2Price * 1000
+            product2Price
           ).toFixed(2)}.`
         : `O segundo produto tem a vantagem no preço. Cada Kg ou L sai por R$ ${Number(
-            product2Price * 1000
+            product2Price
           ).toFixed(2)}, enquanto o primeiro sai por R$ ${Number(
-            product1Price * 1000
+            product1Price
           ).toFixed(2)}.`;
 
     return calc;
@@ -55,6 +77,7 @@ function LayoutPage() {
 
   return (
     <>
+      {unitMeasurementProducts.product1} {unitMeasurementProducts.product2}
       <div className={classes['container']}>
         <div>
           <h2>Qual compensa mais ?</h2>

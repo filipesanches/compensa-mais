@@ -12,7 +12,7 @@
     h2{
       padding: 10px;
     }
-    p{
+    p:not(p:nth-child(1)){
       padding: 0 0 20px 0;
     }
     &:last-child{
