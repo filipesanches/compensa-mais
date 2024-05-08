@@ -124,7 +124,7 @@ const FormCompensa = ({
             required
           />
           <span>
-            <GiWineBottle /> Quantidade em Kg ou L
+            <GiWineBottle /> Quantidade
           </span>
         </label>
       </div>
@@ -197,7 +197,7 @@ const FormCompensa = ({
             required
           />
           <span>
-            <GiWineBottle /> Quantidade em Kg ou L
+            <GiWineBottle /> Quantidade
           </span>
         </label>
       </div>

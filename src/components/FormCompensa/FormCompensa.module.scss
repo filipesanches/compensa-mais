@@ -63,7 +63,7 @@ $form-hover-text-color: #333; // Cor do texto do botão de envio ao passar o mou
         color: $form-text-color;
         font-size: 9pt;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
       }
     }
 
