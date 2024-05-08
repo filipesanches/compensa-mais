@@ -109,7 +109,6 @@ const FormCompensa = ({
             onChange={handleChangeInput}
             value={dataForm.valor1}
             required
-            min={0}
           />
           <span>
             <BsCurrencyDollar /> Valor
@@ -123,7 +122,6 @@ const FormCompensa = ({
             onChange={handleChangeInput}
             value={dataForm.quantidade1}
             required
-            min={0}
           />
           <span>
             <GiWineBottle /> Quantidade em Kg ou L
@@ -184,7 +182,6 @@ const FormCompensa = ({
             onChange={handleChangeInput}
             value={dataForm.valor2}
             required
-            min={0}
           />
           <span>
             <BsCurrencyDollar /> Valor
@@ -198,7 +195,6 @@ const FormCompensa = ({
             onChange={handleChangeInput}
             value={dataForm.quantidade2}
             required
-            min={0}
           />
           <span>
             <GiWineBottle /> Quantidade em Kg ou L
